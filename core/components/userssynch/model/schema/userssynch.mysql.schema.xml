@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="userssynch" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="userssynch"
+       version="1.1">
+
+    <object class="usersSynchUsersTemp" table="userssynch_users_temp" extends="xPDOSimpleObject">
+        <field key="fullname" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+        <field key="uuid" dbtype="varchar" precision="74" phptype="string" null="true" default="" />
+        <field key="phone" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
+        <field key="inn" dbtype="int" precision="10" phptype="integer" null="true" />
+        <field key="form_type" dbtype="varchar" precision="100" phptype="string" null="true" default="juridical" />
+        <field key="price_group" dbtype="int" precision="10" phptype="integer" null="true" default="0" />
+        <field key="subscribe" dbtype="tinyint" precision="1" phptype="boolean" null="true" default="1" />
+
+        <index alias="uuid" name="uuid" primary="false" unique="false" type="BTREE" >
+            <column key="uuid" length="" collation="A" null="false" />
+        </index>
+    </object>
+
+    <object class="usersSynchUsersData" table="userssynch_users" extends="xPDOObject">
+        <field key="user_id" dbtype="integer" attributes="unsigned" precision="10" phptype="integer" null="false" default="0" index="pk" />
+        <field key="uuid_1c" dbtype="varchar" precision="74" phptype="string" null="true" default="" />
+        <field key="uuid" dbtype="varchar" precision="74" phptype="string" null="true" default="" />
+        <index alias="uuid" name="uuid" primary="false" unique="false" type="BTREE" >
+            <column key="uuid" length="" collation="A" null="false" />
+        </index>
+    </object>
+</model>
